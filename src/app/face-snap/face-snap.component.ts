@@ -6,6 +6,7 @@ import { FaceSnap } from '../models/face-snap.model';
   templateUrl: './face-snap.component.html',
   styleUrls: ['./face-snap.component.scss']
 })
+
 export class FaceSnapComponent implements OnInit {
   @Input() FaceSnap!: FaceSnap;
   buttonText!: string;
