@@ -14,7 +14,6 @@ export class FaceSnapComponent implements OnInit {
   ngOnInit() {
     this.buttonText = 'Oh Snap!';
   }
-
   onSnap() {
     if (this.buttonText === 'Oh Snap!') {
       this.FaceSnap.snaps++;
