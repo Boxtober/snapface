@@ -1,11 +1,11 @@
+
+
 .face-snap-card {
     box-sizing: border-box;
     width: 50%;
     margin: 20px auto;
     padding: 10px 30px;
     box-shadow: lightgray 4px 4px 20px;
-
-
     padding: 3%;
     background-color: rgb(241, 240, 240);
     border-radius: 25px;
@@ -18,17 +18,22 @@
   }
 
   p {
+    margin: 10px;
     font-size: 14px;
   }
 
   .snapped {
-    background-color: rgba(lightgreen, 0.4);
-    color: darkgreen;
+    background-color: rgba(rgb(238, 144, 203), 0.4);
+    color: rgb(100, 0, 62);
     button {
-      box-shadow: lightgreen 3px 3px 7px;
-      color: darkgreen;
+      box-shadow: rgb(238, 144, 202) 3px 3px 7px;
+      color: rgb(100, 0, 25);
       &:active {
-        box-shadow: lightgreen 0 0 5px;
+        box-shadow: rgb(238, 144, 199) 0 0 5px;
       }
     }
+  }
+
+  .back-link {
+    margin: 10px;
   }
