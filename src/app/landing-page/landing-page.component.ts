@@ -17,6 +17,6 @@ onContinue(): void {
 }
 
 onSubmitForm(form: NgForm): void {
-  console.log(form.value);
+  //console.log(form.value);
 }
 }

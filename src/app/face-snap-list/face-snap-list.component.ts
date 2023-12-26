@@ -20,7 +20,7 @@ export class FaceSnapListComponent implements OnInit, OnDestroy {
     this.destroy$ = new Subject<boolean>();
     this.faceSnaps =  this.faceSnapsService.getAllFaceSnaps();
     interval(1000).pipe(
-    tap(console.log),
+    //tap(console.log),
     takeUntil(this.destroy$)
   ).subscribe();
   

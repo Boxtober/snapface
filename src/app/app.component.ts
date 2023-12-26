@@ -1,15 +1,15 @@
-
-/*import { Component, OnInit } from '@angular/core';
+/*
+import { Component, OnInit } from '@angular/core';
 import { interval, of } from 'rxjs';
 import { concatMap, mergeMap, delay, exhaustMap, map, switchMap, take, tap } from 'rxjs/operators';
-import { Observable  } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  interval$!: Observable<string>;;
+
   redTrainsCalled = 0;
   yellowTrainsCalled = 0;
 
@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
       map(value => value % 2 === 0 ? 'rouge' : 'jaune'),
       tap(color => console.log(`La lumière s'allume en %c${color}`, `color: ${this.translateColor(color)}`)),
       mergeMap(color => this.getTrainObservable$(color)),
-      //mergeMap peux étre remplacer par concatMap  ,  exhaustMap  et  switchMap
       tap(train => console.log(`Train %c${train.color} ${train.trainIndex} arrivé !`, `font-weight: bold; color: ${this.translateColor(train.color)}`))
     ).subscribe();
   }
@@ -40,6 +39,7 @@ export class AppComponent implements OnInit {
 }
 */
 
+
 import { Component, OnInit } from '@angular/core';
 import { interval, Observable  } from 'rxjs';
 import { map, filter, tap } from 'rxjs';
@@ -50,7 +50,7 @@ import { map, filter, tap } from 'rxjs';
 })
 
 export class AppComponent implements OnInit {
-  interval$!: Observable<string>;;
+  interval$!: Observable<string>;
 
   
   ngOnInit() {
@@ -65,6 +65,6 @@ export class AppComponent implements OnInit {
   }
 
   logger(text: string): void {
-    console.log(`Log: ${text}`);
+    //console.log(`Log: ${text}`);
 }
 }

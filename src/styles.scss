@@ -6,25 +6,33 @@
   */}
 
   body {
+    width: 100%;
     background-color: rgb(241, 240, 240);
    }
 
+  h1, h2, h3, p {
+    margin: 10px;
+  }
   button {
- 
+    margin: 10px;
     background-color: transparent;
-    
-    border-radius: 15px;
-    padding: 12px 22px;
-
+    border-radius: 25px;
+    padding: 10px 20px;
     box-sizing: border-box;
     border: none;
     box-shadow: lightgray 3px 3px 7px;
-    margin-right: 20px;
     outline: none;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
     &:active {
       transform: translate(1px, 1px);
       box-shadow: lightgray 0 0 5px;
+    }
+    &:hover {
+      background-color: #5fffca;
+      color: rgb(2, 32, 23);
+      opacity: 0.8;
+      box-shadow: #5fffca 3px 3px 13px;
     }
   }

@@ -23,17 +23,21 @@
   }
 
   .snapped {
-    background-color: rgba(rgb(238, 144, 203), 0.4);
-    color: rgb(100, 0, 62);
+    background-color: rgb(13 255 175 / 10%);;
+    color:  rgb(2, 32, 23);;
     button {
-      box-shadow: rgb(238, 144, 202) 3px 3px 7px;
-      color: rgb(100, 0, 25);
+      box-shadow: #5fffca 3px 3px 7px;
+      color: rgb(2, 32, 23);;
       &:active {
-        box-shadow: rgb(238, 144, 199) 0 0 5px;
+        box-shadow: #5fffca, 0 0 5px;
       }
     }
   }
 
   .back-link {
     margin: 10px;
+  }
+
+  body > app-root > app-single-face-snap > div > a {
+    font-weight: bolder;
   }
