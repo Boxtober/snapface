@@ -3,6 +3,7 @@ import { FaceSnap } from '../models/face-snap.model';
 import { FaceSnapsService } from '../services/face-snaps.service';
 
 import { ActivatedRoute } from '@angular/router';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-single-face-snap',
@@ -10,27 +11,45 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-face-snap.component.scss'],
 })
 export class SingleFaceSnapComponent implements OnInit {
-  FaceSnap!: FaceSnap;
+  faceSnap!: FaceSnap;
+  faceSnap$!: Observable<FaceSnap>;
   buttonText!: string;
 
   constructor(
     private faceSnapsService: FaceSnapsService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.buttonText = 'Oh Snap!';
-    const snapId = +this.route.snapshot.params['id'];
+    //const snapId = +this.route.snapshot.params['id'];
     //faceSnapId
-    this.FaceSnap = this.faceSnapsService.getFaceSnapById(snapId);
+    //this.FaceSnap = this.faceSnapsService.getFaceSnapById(snapId);
+
+    const faceSnapId = +this.route.snapshot.params['id'];
+    this.faceSnap$ = this.faceSnapsService.getFaceSnapById(faceSnapId);
   }
-  onSnap() {
+
+  onSnap(faceSnapId: number) {
     if (this.buttonText === 'Oh Snap!') {
-      this.faceSnapsService.snapFaceSnapById(this.FaceSnap.id, 'snap');
-      this.buttonText = 'Oops, unSnap!';
+      this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId, 'snap').pipe(
+        tap(() => this.buttonText = 'Oops, unSnap!')
+      );
     } else {
-      this.faceSnapsService.snapFaceSnapById(this.FaceSnap.id, 'unsnap');
-      this.buttonText = 'Oh Snap!';
+      this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId, 'unsnap').pipe(
+        tap(() => this.buttonText = 'Oh Snap!')
+      );
     }
   }
+
+  /*  onSnap() {
+      
+      if (this.buttonText === 'Oh Snap!') {
+        this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
+        this.buttonText = 'Oops, unSnap!';
+      } else {
+        this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap');
+        this.buttonText = 'Oh Snap!';
+      }
+    }*/
 }
